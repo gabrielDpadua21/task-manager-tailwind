@@ -40,4 +40,12 @@ export default class Task {
     public active() {
         return Task.create(this._id, this._description)
     }
+
+    public isActive(): boolean {
+        return !this._status;
+    }
+
+    public isFinished(): boolean {
+        return this._status;
+    }
  }
