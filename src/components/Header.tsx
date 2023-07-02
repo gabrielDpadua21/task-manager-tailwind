@@ -1,5 +1,8 @@
+'use client';
+
 import React from "react"
 import Form from "./Form";
+import ListItem from "./list/ListItem";
 
 const Header: React.FC = () => {
     return (
@@ -8,6 +11,10 @@ const Header: React.FC = () => {
                 <div  className="h-full w-screen bg-gradient-to-r from-purple-500 via-transparent to-pink-500">
                     <div className="flex justify-center items-center h-full w-full">
                         <Form />
+                    </div>
+                    <div className="flex justify-center items-center flex-col">
+                        <ListItem value="Study #1" isFinished={false} changeStatus={() => { }}/>
+                        <ListItem value="Study #2" isFinished={true} changeStatus={() => { }}/>
                     </div>
                 </div>
             </div>
