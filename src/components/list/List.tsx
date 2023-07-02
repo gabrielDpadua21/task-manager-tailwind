@@ -3,6 +3,7 @@
 import List from "@/model/List"
 import React from "react"
 import ListItem from "./ListItem";
+import ListButton from "./ListButton";
 
 
 interface ListProps {
@@ -26,6 +27,10 @@ const ListComponent: React.FC<ListProps> = (props: ListProps) => {
                         props.changeTasks(newTasks);
                     }}/>
                 ))}
+                <li className="p-5">
+                    <ListButton select={true} text="All" onClick={() => {}}/>
+                    <ListButton select={false} text="Not Finished" onClick={() => {}}/>
+                </li>
             </ul>
         </div>
     )
