@@ -18,7 +18,7 @@ const ListComponent: React.FC<ListProps> = (props: ListProps) => {
 
     return (
         <div className={`
-           flex w-3/5 justify-center items-center
+           flex w-3/5 items-start
         `}>
             <ul className={`w-full list-none bg-white shadow-lg rounded-xl`}>
                 {tasks.itens.map((task) => (

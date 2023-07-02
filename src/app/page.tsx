@@ -1,30 +1,24 @@
-import Header from "@/components/Header";
+'use client'
+
+import Form from "@/components/Form";
+import ListComponent from "@/components/list/List";
+import TemplateContent from "@/components/template/TemplateContent";
+import TemplateHeader from "@/components/template/TemplateHeader";
 import initialTasks from "@/data/mock";
-import Task from "@/model/Task";
+import { useState } from "react";
 
 export default function Home() {
 
-  let tasks = initialTasks;
-  tasks = tasks.removeFilter();
-  tasks = tasks.addTask(Task.create(10, "Finished project"));
-  tasks = tasks.addTask(Task.create(20, "Finished Article"));
-  tasks = tasks.toogleTask(Task.createFinished(20, "Finished Article"));
-
-  const renderTasks = () => {
-    return tasks.itens.map(task => {
-      return (
-        <div key={task.id}>
-          <span>{task.id} - </span>
-          <span>{task.description} - </span>
-          <span>{task.status ? 'Concluida' : 'Ativa'}</span>
-        </div>
-      )
-    })
-  }
+  const [tasks, setTasks] = useState(initialTasks);
 
   return (
-    <main className="h-screen w-screen bg-gray-100">
-        <Header />
+    <main className="h-screen bg-gray-300 flex flex-col">
+        <TemplateHeader>
+          <Form />
+        </TemplateHeader>
+        <TemplateContent>
+          <ListComponent tasks={tasks} changeTasks={(newTasks) => setTasks(newTasks)}/>
+        </TemplateContent>
     </main>
   )
 }
