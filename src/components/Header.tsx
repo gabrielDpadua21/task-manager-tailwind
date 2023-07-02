@@ -1,10 +1,14 @@
 'use client';
 
-import React from "react"
+import React, { useState } from "react"
 import Form from "./Form";
-import ListItem from "./list/ListItem";
+import mock from "@/data/mock";
+import ListComponent from "./list/List";
 
 const Header: React.FC = () => {
+
+    const [tasks, setTasks] = useState(mock);
+
     return (
         <div className="h-1/3 w-screen">
             <div className="bg-image h-full w-screen">
@@ -12,9 +16,8 @@ const Header: React.FC = () => {
                     <div className="flex justify-center items-center h-full w-full">
                         <Form />
                     </div>
-                    <div className="flex justify-center items-center flex-col">
-                        <ListItem value="Study #1" isFinished={false} changeStatus={() => { }}/>
-                        <ListItem value="Study #2" isFinished={true} changeStatus={() => { }}/>
+                    <div className="h-full w-screen flex justify-center items-center">
+                        <ListComponent tasks={tasks} changeTasks={(newTasks) => setTasks(newTasks)}/>
                     </div>
                 </div>
             </div>
