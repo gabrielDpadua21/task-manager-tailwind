@@ -12,7 +12,7 @@ export default function Home() {
   const [tasks, setTasks] = useState(initialTasks);
 
   return (
-    <main className="h-screen bg-gray-300 flex flex-col">
+    <main className="h-screen bg-gray-300 flex flex-col relative">
         <TemplateHeader>
           <Form />
         </TemplateHeader>
