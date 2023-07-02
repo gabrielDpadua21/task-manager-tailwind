@@ -23,6 +23,26 @@ export default class List {
         return this._filter;
     }
 
+    public deleteFinished(): List {
+        const onlyNotFinished = this._all.filter(task => task.active)
+        return new List(onlyNotFinished, Filters.NONE);
+    }
+
+    public filterNotFinished(): List {
+        if (!this.showActive()) return new List(this._all, Filters.ACTIVE);
+        return this;
+    }
+
+    public filterFinished(): List {
+        if (!this.showFinished()) return new List(this._all, Filters.FINISH);
+        return this;
+    }
+
+    public removeFilter(): List {
+        if (!this.showAll()) return new List(this._all, Filters.NONE);
+        return this;
+    }
+
     public showAll(): boolean {
         return this._filter === Filters.NONE;
     }
