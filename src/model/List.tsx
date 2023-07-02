@@ -23,6 +23,19 @@ export default class List {
         return this._filter;
     }
 
+    public addTask(newTask: Task): List {
+        const tasks = [...this._all];
+        tasks.push(newTask);
+        return new List(tasks, Filters.NONE);
+    }
+
+    public toogleTask(newTask: Task): List {
+        const tasks = this._all.map(task => {
+            return task.id == newTask.id ? newTask : task
+        })
+        return new List(tasks, this.filter);
+    }
+
     public deleteFinished(): List {
         const onlyNotFinished = this._all.filter(task => task.active)
         return new List(onlyNotFinished, Filters.NONE);
