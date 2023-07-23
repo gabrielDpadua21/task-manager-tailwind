@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="h-screen bg-gray-300 flex flex-col relative">
         <TemplateHeader>
-          <Form />
+          <Form tasks={tasks} changeTasks={(newTasks) => setTasks(newTasks)}/>
         </TemplateHeader>
         <TemplateContent>
           <ListComponent tasks={tasks} changeTasks={(newTasks) => setTasks(newTasks)}/>
